@@ -51,9 +51,7 @@ function Navbar() {
       location.replace("/signin");
     }
   }
-  if (isLoading) {
-    return <Spinner />;
-  }
+
   return (
     <AppBar
       position="fixed"
@@ -168,90 +166,99 @@ function Navbar() {
             ))}
           </Box>
           <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-            {userData ? (
-              <>
-                {" "}
-                <Link href={"/cart"}>
-                  <Box sx={{ position: "relative", display: "inline-flex" }}>
-                    <ShoppingCartOutlinedIcon />
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: -8,
-                        right: -8,
-                        minWidth: 20,
-                        height: 20,
-                        borderRadius: "50%",
-                        bgcolor: "#16a34a",
-                        color: "white",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: 12,
-                        fontWeight: "bold",
-                        padding: "2px",
-                      }}
-                    >
-                      {dataCart?.data.products.length}
-                    </Box>
-                  </Box>
-                </Link>
-                <Button
-                  onClick={handleLogOut}
-                  sx={{
-                    textTransform: "capitalize",
-                    border: "1px solid #e4e4e7",
-                    borderRadius: "12px",
-                    color: "black",
-                    fontWeight: 500,
-                    fontSize: ".875rem",
-                    padding: "0.3rem 1rem",
-                  }}
-                >
-                  <LoginIcon sx={{ mr: "5px" }} />
-                  Logout
-                </Button>
-              </>
+            {isLoading ? (
+              <Spinner />
             ) : (
               <>
                 {" "}
-                <Link href="/signin">
-                  <Button
-                    sx={{
-                      textTransform: "capitalize",
-                      border: "1px solid #e4e4e7",
-                      borderRadius: "12px",
-                      color: "black",
-                      fontWeight: 500,
-                      fontSize: ".875rem",
-                      padding: "0.3rem 1rem",
-                    }}
-                  >
-                    <LoginIcon sx={{ mr: "5px" }} />
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/signup">
-                  <Button
-                    sx={{
-                      textTransform: "capitalize",
-                      borderRadius: "12px",
-                      color: "white",
-                      border: "1px solid #e4e4e7",
+                {userData ? (
+                  <>
+                    {" "}
+                    <Link href={"/cart"}>
+                      <Box
+                        sx={{ position: "relative", display: "inline-flex" }}
+                      >
+                        <ShoppingCartOutlinedIcon />
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: -8,
+                            right: -8,
+                            minWidth: 20,
+                            height: 20,
+                            borderRadius: "50%",
+                            bgcolor: "#16a34a",
+                            color: "white",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: 12,
+                            fontWeight: "bold",
+                            padding: "2px",
+                          }}
+                        >
+                          {dataCart?.data.products.length}
+                        </Box>
+                      </Box>
+                    </Link>
+                    <Button
+                      onClick={handleLogOut}
+                      sx={{
+                        textTransform: "capitalize",
+                        border: "1px solid #e4e4e7",
+                        borderRadius: "12px",
+                        color: "black",
+                        fontWeight: 500,
+                        fontSize: ".875rem",
+                        padding: "0.3rem 1rem",
+                      }}
+                    >
+                      <LoginIcon sx={{ mr: "5px" }} />
+                      Logout
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <Link href="/signin">
+                      <Button
+                        sx={{
+                          textTransform: "capitalize",
+                          border: "1px solid #e4e4e7",
+                          borderRadius: "12px",
+                          color: "black",
+                          fontWeight: 500,
+                          fontSize: ".875rem",
+                          padding: "0.3rem 1rem",
+                        }}
+                      >
+                        <LoginIcon sx={{ mr: "5px" }} />
+                        Login
+                      </Button>
+                    </Link>
+                    <Link href="/signup">
+                      <Button
+                        sx={{
+                          textTransform: "capitalize",
+                          borderRadius: "12px",
+                          color: "white",
+                          border: "1px solid #e4e4e7",
 
-                      backgroundColor: "#18181b",
-                      fontWeight: 500,
-                      fontSize: ".875rem",
-                      padding: "0.3rem 1rem",
-                      "&:hover": {
-                        backgroundColor: "#3f3f46",
-                      },
-                    }}
-                  >
-                    <AssignmentIndIcon sx={{ mr: "5px" }} />
-                    Signup
-                  </Button>
-                </Link>
+                          backgroundColor: "#18181b",
+                          fontWeight: 500,
+                          fontSize: ".875rem",
+                          padding: "0.3rem 1rem",
+                          "&:hover": {
+                            backgroundColor: "#3f3f46",
+                          },
+                        }}
+                      >
+                        <AssignmentIndIcon sx={{ mr: "5px" }} />
+                        Signup
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </>
             )}
           </Box>

@@ -58,6 +58,7 @@ function DialogBrand({ data }: { data: Brand }) {
           alt={data.slug}
           fill
           style={{ borderRadius: "10px", objectFit: "cover" }}
+          className="scale-animation"
         />
 
         <Box
