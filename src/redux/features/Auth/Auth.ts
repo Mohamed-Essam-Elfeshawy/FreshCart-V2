@@ -3,8 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authapi",
   tagTypes: ["Auth"],
-  refetchOnReconnect: true,
-  refetchOnMountOrArgChange: true,
+  refetchOnReconnect:
   baseQuery: fetchBaseQuery({
     baseUrl: "https://ecommerce.routemisr.com/api/v1/",
   }),
